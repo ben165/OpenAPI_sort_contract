@@ -1,0 +1,46 @@
+openapi: 3.0.0
+servers:
+  - url: 'http://localhost:8081/v2'
+info:
+ description: BU Sort API
+ version: 1.0.0
+ title: BU Sort API
+ termsOfService: https://xxx-adapter.api.tbd.domain.tld/terms/
+ license:
+   name: We <3 SIT
+   url: 'https://it.schwarz'
+ contact:
+  email: 1@1.de
+tags:
+ - name: Welcome to BU Sort API
+   description: Everything about BU Sort API
+paths:
+  /sort:
+   post:
+    tags:
+     - sort
+    summary: performs a sort
+    description: performs a sort
+    operationId: sort
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "model/unsortedIntegerListRequest.json"
+          examples:
+            unsortedIntegerListRequest_example:
+              summary: unsortedIntegerListRequest_example example
+              value: { "unsorted" : [ 579, 837, -27, -62, -821, 371 ], "algorithm" : "BUBBLE" }
+
+    responses:
+      "200":
+        description: sort successful
+        content:
+          application/json:
+            schema:
+              $ref: "model/sortedIntegerListResponse.json"
+            examples:
+              sortedIntegerListResponse_example:
+                summary: sortedIntegerListResponse example
+                value: { "sorted" : [ -821, -62, -27, 371, 579, 837 ], "durationInMs" : 22 }

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "required": [
+    "unsorted","algorithm"
+  ],
+  "properties": {
+    "unsorted": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "minItems": 1
+    },
+    "algorithm" : {
+      "type" : "string",
+      "enum" : [ "BUBBLE", "MERGE", "QUICK", "NATIVE"],
+      "nullable" : false
+    }
+  }
+}
